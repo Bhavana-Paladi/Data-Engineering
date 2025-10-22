@@ -1,0 +1,11 @@
+{
+  "corpus_stats": {
+    "n_reviews": 102014,
+    "avg_words_per_review": 51.01585076558119,
+    "n_unique_words": 65052,
+    "class_counts": {
+      "neg(0)": 19627,
+      "pos(1)": 82387
+    }
+  }
+}
