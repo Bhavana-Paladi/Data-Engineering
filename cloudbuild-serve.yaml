@@ -1,0 +1,13 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ['build','-t','gcr.io/$PROJECT_ID/sentiment-api:$COMMIT_SHA','serving/api']
+  - name: gcr.io/cloud-builders/docker
+    args: ['push','gcr.io/$PROJECT_ID/sentiment-api:$COMMIT_SHA']
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      ['run','deploy','sentiment-api',
+       '--image','gcr.io/$PROJECT_ID/sentiment-api:$COMMIT_SHA',
+       '--region','europe-west4','--platform','managed','--allow-unauthenticated','--quiet']
+images:
+  - 'gcr.io/$PROJECT_ID/sentiment-api:$COMMIT_SHA'
