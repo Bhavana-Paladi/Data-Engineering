@@ -11,3 +11,7 @@ steps:
        '--region','europe-west4','--platform','managed','--allow-unauthenticated','--quiet']
 images:
   - 'gcr.io/$PROJECT_ID/sentiment-api:$COMMIT_SHA'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
